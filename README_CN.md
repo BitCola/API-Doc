@@ -312,7 +312,8 @@ GET /api/trade/cancelOrder
 |参数名|类型|必需|描述|示例|
 |---------|-------|-------------|-------|---|
 |`accessKey`|string|是||accessKey|
-|`id`|string|是|订单 ID|1210474828318928896|
+|`id`|string|否|订单 ID|若订单号为空,则取消该交易对下面所有未成交挂单|
+|`pair`|string|是|交易对|BTC_USDT|
 |`reqTime`|number|是||1561696191547|
 |`sign`|string|是||98beddad85269b6f79bda169705e1abc|
 

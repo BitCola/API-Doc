@@ -16,19 +16,15 @@ public class TradeApi {
     public static String accessKey = "Your accessKey";
     public static String encoderSecretKey = "Your encrypted secretKey";
 
-    public static final String HOST = "https://api.bitcola.io";
+    public static String HOST = "https://api.bitcola.io";
 
     public static final String GET_ACCOUNT = "/api/trade/getAccountInfo";
     public static final String ORDER = "/api/trade/order";
     public static final String CANCEL_ORDER = "/api/trade/cancelOrder";
     public static final String GET_ORDER = "/api/trade/getOrder";
     public static final String GET_ORDERS = "/api/trade/getOrders";
+    public static final String GET_MATCH = "/api/trade/getMatchRecord";
 
-
-
-    public static void main(String[] args) {
-        System.out.println(getAccount());
-    }
 
 
 
@@ -47,9 +43,10 @@ public class TradeApi {
         return signGet(ORDER,params);
     }
 
-    public static String cancelOrder(String id){
+    public static String cancelOrder(String id,String pair){
         TreeMap<String,String> params = new TreeMap<>();
         params.put("id",id);
+        params.put("pair",pair);
         return signGet(CANCEL_ORDER,params);
     }
 
@@ -59,14 +56,25 @@ public class TradeApi {
         return signGet(GET_ORDER,params);
     }
 
-    public static String getOrders(String pair,String status,String direction,String type,int page){
+    public static String getOrders(String pair,String status,String direction,String type,int page,int limit){
         TreeMap<String,String> params = new TreeMap<>();
         params.put("pair",pair);
         params.put("status",status);
         params.put("direction",direction);
         params.put("type",type);
+        params.put("limit",String.valueOf(limit));
         params.put("page",String.valueOf(page));
         return signGet(GET_ORDERS,params);
+    }
+
+    public static String getMatch(String id,String pair,String direction,int page,int limit){
+        TreeMap<String,String> params = new TreeMap<>();
+        params.put("id",id);
+        params.put("pair",pair);
+        params.put("direction",direction);
+        params.put("limit",String.valueOf(limit));
+        params.put("page",String.valueOf(page));
+        return signGet(GET_MATCH,params);
     }
 
 
