@@ -11,7 +11,7 @@
 
 ####  签名方式
 `申请 API 将获得 accessKey 和 secretKey，先用sha加密secretKey，然后根据加密过的secretKey把请求的参数签名，请求参数按照ascii值排序加密，通过md5填充16位加密`
-### [示例代码](https://github.com/BitCola/API-Doc/blob/master/src/main/java/com/bitcola/doc/api/TradeApi.java)
+[`查看示例`](https://github.com/BitCola/API-Doc/blob/master/src/main/java/com/bitcola/doc/api/TradeApi.java)
 
 ####  访问限制
 
